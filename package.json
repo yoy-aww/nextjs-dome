@@ -3,7 +3,17 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "db:setup": "node scripts/setup-db.js",
+    "db:config": "node scripts/config-wizard.js",
+    "db:test-local": "node scripts/test-postgres.js",
+    "db:debug": "node scripts/debug-postgres.js",
+    "db:fix": "node scripts/fix-postgres-auth.js",
+    "db:find-password": "node scripts/find-password.js",
+    "db:seed": "curl http://localhost:3000/seed",
+    "db:test": "node -e \"require('./app/lib/db').testConnection()\"",
+    "db:docker": "docker-compose up -d",
+    "db:docker-stop": "docker-compose down"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -11,6 +21,7 @@
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "next": "latest",
     "next-auth": "5.0.0-beta.25",
     "postcss": "8.5.1",
